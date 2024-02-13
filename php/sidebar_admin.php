@@ -13,20 +13,8 @@
             <img class="item" src="../img/logo.png" alt="">
             <div class="logo_name">Study</div>
             <i class="fa-solid fa-bars" id="btn"></i>
-        </div>
-    <ul class="nav-list scroll">
-        <li>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Tìm kiếm...">
-            <span class="tooltip">Tìm kiếm</span>
-        </li>
-        <li>
-            <a href="#">
-            <i class="fa-solid fa-house"></i>
-                <span class="links_name">Màn hình chính</span>
-            </a>
-                <span class="tooltip">Màn hình chính</span>
-        </li>
+    </div>
+    <ul class="nav-list">
         <li>
             <a href="#">
             <i class="fa-solid fa-graduation-cap"></i>
@@ -70,7 +58,7 @@
                 <span class="tooltip">Khóa học</span>
         </li>
         <li>
-            <a href="#">
+            <a href="discussions.php">
                 <i class="fa-solid fa-comment"></i>
                 <span class="links_name">Phản hồi</span>
             </a>
@@ -95,9 +83,7 @@
         </li>
     </ul>
     </div>
-    <section class="home-section">
-      <div class="text"></div>
-    </section>
+    
     <script src="../js/sidebar_admin.js"></script>
 </body>
 </html>
