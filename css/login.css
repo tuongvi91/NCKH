@@ -92,3 +92,19 @@ a {
     box-shadow: none;
     transform: translateY(5px);
 }
+.signIn input[type="submit"] {
+    background-color: #69b4fa;
+    border: none; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+.signIn input[type="submit"]:hover {
+    background-color: #69b4fa99; 
+}
