@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    session_start();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +52,7 @@
                 <span class="tooltip">Lịch</span>
         </li>
         <li>
-            <a href="#">
+            <a href="createQRcode.php">
                 <i class="fa-solid fa-clipboard-user"></i>
                 <span class="links_name">Điểm danh</span>
             </a>
@@ -66,11 +69,11 @@
             <div class="profile-details">
                 <!--<img src="profile.jpg" alt="profileImg">-->
                 <div class="name_job">
-                    <div class="name">Tên</div>
-                    <div class="job">Vai trò</div>
+                    <div class="name"><a href ="#"><?php if(isset($_SESSION['tennguoidung'])) echo $_SESSION['tennguoidung'] ?></a></div>
+                    <div class="job">Giảng viên</div>
                 </div>
             </div>
-                <i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i>
+            <a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i></a>
         </li>
     </ul>
     </div>

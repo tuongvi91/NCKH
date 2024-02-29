@@ -31,12 +31,14 @@
 							"<script> 
 								alert('Đăng nhập thành công');									
 								if ($quyen == '0') window.location='sidebar_admin.php'	;
-								else if ($quyen == '1') window.location= 'sidebar_std.php';
-								else if ($quyen == '2') window.location= 'sidebar_teacher.php';				
+								
+								else if ($quyen == '2') window.location= 'sidebar_teacher.php';	
+								
+								else window.location= 'sidebar_std.php';	
 							</script>";	
 							
 						$_SESSION['tennguoidung']=$row['fullname'];
-						$_SESSION['ma']=$row['user_id'];	
+						$_SESSION['manguoidung']=$row['user_id'];	
 					}		
 					else 
 					{
