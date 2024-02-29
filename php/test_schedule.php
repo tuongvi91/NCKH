@@ -19,6 +19,11 @@
 					<label for="subject">Môn học:</label>
 					<input type="text" id="subject" name="subject">
 				</div>
+
+                <div class="form-row">
+					<label for="room">Phòng thi:</label>
+					<input type="text" id="room" name="room">
+				</div>
 				<div class="form-row">
 					<label for="duration">Thời gian:</label>
 					<input class="form-control" type="time" id="p2_1">		 
@@ -45,6 +50,7 @@
 				<thead>
 					<tr>
 						<th>Môn học </th>
+						<th>Phòng thi </th>
 						<th>Thời gian</th>
 						<th>Ngày</th>
 						<th>Tín chỉ</th></th>
