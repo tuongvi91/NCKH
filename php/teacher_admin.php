@@ -61,7 +61,8 @@
 
     <tbody class="userInfo">
         <?php 
-            require 'connect.php';           
+            require 'connect.php';     
+
             
             //lấy số mục:
             $limit = 20;
@@ -76,7 +77,14 @@
             $trangchon = isset($_GET['trang']) ? $_GET['trang'] : 1;
             // số offset
             $offset = ($trangchon - 1) * 20;
-            $layDS = mysqli_query($conn, "SELECT * FROM users  where role_id = 2 limit $offset, $limit");
+             //tìm kiếm
+            if (isset($_GET['OK']) && !empty($_GET['OK']))
+            {
+                $key = $_GET['search'];
+                $findcmd = "select*from users where role_id = 2 and (  user_id = '$key' or fullname like '%$key%' or username = '$key')";
+                $layDS = mysqli_query($conn, $findcmd);
+            }
+            else $layDS = mysqli_query($conn, "SELECT * FROM users  where role_id = 2 limit $offset, $limit");
         ?>
         
         <?php 
@@ -199,18 +207,6 @@
              </div>            
     </div>
 </div>
-<?php
-    //tìm kiếm
-    if (isset($_GET['OK']))
-    {
-        $key = $_GET['search'];
-        $findcmd = "select*from users where user_id = '$key' or fullname like '%$key%' or username = '$key'";
-        $tim = mysqli_query($conn, $findcmd);
-    }
-    
-    
-    
-?>
 <script src="../js/user_admin.js"></script>
 </section>
 </body>
