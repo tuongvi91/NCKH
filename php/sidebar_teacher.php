@@ -14,15 +14,10 @@
     <div class="sidebar ">
         <div class="logo-details">
             <img class="item" src="../img/logo.png" alt="">
-            <div class="logo_name">Study</div>
+            <div class="logo_name">I Class</div>
             <i class="fa-solid fa-bars" id="btn"></i>
         </div>
     <ul class="nav-list scroll">
-        <li>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Tìm kiếm...">
-            <span class="tooltip">Tìm kiếm</span>
-        </li>
         <li>
             <a href="#">
             <i class="fa-solid fa-house"></i>
@@ -40,9 +35,9 @@
         <li>
             <a href="teacher_admin.php">
             <i class="fa-solid fa-user"></i>
-                <span class="links_name">Người dùng</span>
+                <span class="links_name">Thông tin cá nhân</span>
             </a>
-                <span class="tooltip">Người dùng</span>
+                <span class="tooltip">Thông tin cá nhân</span>
         </li>
         <li>
             <a href="#">
