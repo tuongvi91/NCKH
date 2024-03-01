@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="addMemberBtn">
-        <button>Thêm mới </button>
+        <button onclick="location.href = 'fill_in_information.php'">Thêm mới </button>
     </div>
     <div class="plus">
         <form class="form">
@@ -97,9 +97,9 @@
                 <td><?php echo $row['username']?></td>
 
                 <?php
-                    if ($row['role_id']==1) $quyen = "Sinh viên";
+                    if ($row['role_id']==1) $quyen = "Người học";
                     else if ($row['role_id']==0) $quyen = "Admin";
-                    else if ($row['role_id']==2) $quyen = "Giảng viên";
+                    else if ($row['role_id']==2) $quyen = "Người dạy";
                     $capquyen = $quyen;
                 ?>
                 <td><?php echo $capquyen?></td>
@@ -145,67 +145,6 @@
         </div>
     </footer>
 </div>
-<!-- Popup Form -->
-<div class="dark_bg">
-    <div class="popup">
-            <header>
-                <h2 class="modalTitle">Điền thông tin</h2>
-                <button class="closeBtn">&times;</button>
-             </header>
-             <div class="body">
-                <form action="" id="myForm">
-                    <div class="imgholder">
-                        <label for="uploadimg" class="upload">
-                            <input type="file" name="" id="uploadimg" class="picture">
-                            <i class="fa-solid fa-plus"></i>
-                        </label>
-                        <img src="../img/" alt="" width="150" height="150" class="img">
-                    </div>
-                    
-                    <div class="nameField">
-                            <div class="form_control">
-                                <label for="username">Tên hiển thị:</label>
-                                <input type="text" name="" id="username" required>
-                            </div>
-
-                            <div class="form_control">
-                                <label for="fullname">Tên đầy đủ:</label>
-                                <input type="text" name="" id="fullname" required>
-                            </div>
-                        </div>
-
-                        <div class="postSalary">
-                            <div class="form_control">
-                                <label for="position">Vai trò: </label>
-                                <input type="text" name="" id="position" required>
-                            </div>
-
-                            <div class="form_control">
-                                <label for="date_of_birth">Ngày sinh:</label>
-                                <input type="date" name="" id="date_of_birth" required>
-                            </div>
-
-                            <div class="form_control">
-                                <label for="email">Email:</label>
-                                <input type="email" name="" id="email" required>
-                            </div>
-
-                        <div class="form_control">
-                            <label for="phone_number">Phone:</label>
-                            <input type="number" name="" id="phone_number" required>
-                        </div>
-                            
-                        </div>
-
-                        
-                    </div>
-                </form>
-
-                <footer class="popupFooter">
-                    <button form="myForm" class="submitBtn">Submit</button>
-                </footer>
-             </div>            
-    </div>
 </div>
 <script src="../js/user_admin.js"></script>
 </section>

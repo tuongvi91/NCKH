@@ -159,9 +159,8 @@ table tbody tr:nth-child(odd) {
 }
 
 table tbody tr:nth-child(odd) > td:nth-child(3) {
-    background: #69b4fa;
+    background: #ffffff;
 }
-
 table tr td {
     font-size: 15px;
 }

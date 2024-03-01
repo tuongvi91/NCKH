@@ -38,7 +38,7 @@
             <span class="tooltip">Danh sách lớp học</span>
         </li>
         <li>
-            <a href="#">
+            <a href="teacher_admin.php">
             <i class="fa-solid fa-user"></i>
                 <span class="links_name">Người dùng</span>
             </a>
