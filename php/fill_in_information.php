@@ -11,10 +11,9 @@
 </head>
 <body>
     <?php 
+        require 'connect.php';
         if (isset ($_POST['submit']))
         {
-            $conn = mysqli_connect ("localhost", "root", "", "qlsv") or die ("!!");
-            mysqli_query($conn,"SET NAMES 'utf8'");
             $picpath = basename ($_FILES['img']['name']);
             //upload ảnh
             $des_dir = "../img/";
@@ -28,8 +27,10 @@
             $quyen = $_POST['role'];            
             $ngaysinh = $_POST['DOB'];
             $email = $_POST['mail'];
-            $sodt = $_POST['sdt'];             
-            $sqlAdd = "insert into users (username, role_id, email, phone_number, fullname, DOB, img) values ('".$tennd."', '".$quyen."', '".$email."', '".$sodt."', '".$hovaten."', '".$ngaysinh."','".$picpath."' )";
+            $sodt = $_POST['sdt'];   
+            $khoa = $_POST['khoa'];  
+            $khoahoc = $_POST['khoahoc'];        
+            $sqlAdd = "insert into users (username, role_id, email, phone_number, fullname, DOB, img, faculty_id, batch_id) values ('".$tennd."', '".$quyen."', '".$email."', '".$sodt."', '".$hovaten."', '".$ngaysinh."','".$picpath."','".$khoa."','".$khoahoc."' )";
             if ($them = mysqli_query($conn, $sqlAdd))
             {
                 echo "<script> 
@@ -94,7 +95,36 @@
                             <label for="date_of_birth">Ngày sinh:</label>
                             <input type="date" name="DOB" id="date_of_birth" required>
                         </div>
-                            
+
+                        <div class="form_control">
+                        <?php
+                            $sqlcmd = "SELECT * FROM faculty";
+                            $laykhoa = mysqli_query($conn, $sqlcmd);                            
+                            if ($laykhoa) {
+                                // Lặp qua các khoa
+                                echo 
+                                "<form action='' method='post'>
+                                <b>Khoa:</b> 
+                                <select name='khoa'>";
+                                while ($row = mysqli_fetch_array($laykhoa)) 
+                                {
+                                    $faculty_id = $row['faculty_id'];
+                                    $faculty_name = $row['faculty_name'];                            
+                                    // Viết option cho khoa
+                                    echo "<option value='$faculty_id'> $faculty_name </option>";
+                                }
+                                echo "</select>
+                                </form>";
+                            } else {
+                                echo "Lỗi truy vấn: " . mysqli_error($conn);
+                            }
+                        ?> 
+                         </div>   
+                         <div class="form_control">
+                            <label for="khoahoc">Khóa học:</label>
+                            <div>(VD: 43, 44,..) </div>
+                            <input type="text" name="khoahoc" id="khoahoc" required>
+                        </div>
                         <footer class="popupFooter">
                             <input class="submitBtn" type = "submit" name = "submit" value="Submit">
                         </footer>
