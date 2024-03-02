@@ -172,8 +172,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="course_id" class="form-label">Khoá học</label>
-                        <input id="course_id" name="course_id" type="text" class="form-control">
+                        <label for="batch" class="form-label">Khoá học</label>
+                        <input id="batch" name="batch" type="text" class="form-control">
                         
                     </div>
                     
