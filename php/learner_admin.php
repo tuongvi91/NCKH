@@ -53,6 +53,8 @@
                     <th>SĐT</th>
                     <th>Họ tên </th>
                     <th>Ngày sinh </th>
+                    <th>Khoa </th>
+                    <th>Khóa học </th>
                     <th>Thời gian thêm</th>
                     <th>Thời gian sửa</th>
                     <th>Hành động</th>   
@@ -105,6 +107,19 @@
                      <td><?php echo $row['phone_number']?></td>
                      <td><?php echo $row['fullname']?></td>
                      <td><?php echo $row['DOB']?></td>
+                     <?php
+                        //lấy tên khoa và tên khóa
+                        $laykhoa = "SELECT*FROM faculty WHERE faculty_id='".$row['faculty_id']."'";
+                        $laykhoahoc = "SELECT*FROM batch WHERE batch_id='".$row['batch_id']."'";
+			            $rs1 = mysqli_query($conn, $laykhoa);
+                        $rs2 = mysqli_query ($conn, $laykhoahoc);
+                        if ($rtenkhoa = mysqli_fetch_array($rs1)) $tenkhoa= $rtenkhoa['faculty_name'];
+                        else $tenkhoa = "chưa xác định";
+                        if ($rtenkhoahoc = mysqli_fetch_array($rs2)) $tenkhoahoc = $rtenkhoahoc['batch_name'];
+                        else $tenkhoahoc = "chưa xác định"
+                      ?>
+                     <td><?php echo $tenkhoa?></td>
+                     <td><?php echo $tenkhoahoc?></td>
                      <td><?php echo $row['created_at']?></td>
                      <td><?php echo $row['update_at']?></td>
                      <td>
