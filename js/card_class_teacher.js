@@ -36,6 +36,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var addClassButton = document.querySelector('.add-class-button');
+  
+    var addClassSection = document.querySelector('.add-class');
+
+    var overlay = document.querySelector('.overlay');
+
+    var cancelButton = document.getElementById('cancel-add-class');
+
+    addClassButton.addEventListener('click', function() {
+        addClassSection.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    cancelButton.addEventListener('click', function() {
+        addClassSection.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+});
+
         // Remove existing cards
         cardContainer.innerHTML = '';
 
