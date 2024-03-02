@@ -26,6 +26,8 @@
         $ngaysinh = $row['DOB'];
         $email = $row['email'];
         $sodt = $row['phone_number'];
+        $khoa = $row['faculty_id'];
+        $khoahoc = $row['batch_id'];
     }
 
     //update 
@@ -47,11 +49,13 @@
         $ngaysinh = $_POST['DOB'];
         $email = $_POST['mail'];
         $sodt = $_POST['sdt'];
+        $khoa = $_POST['khoa'];
+        $khoahoc = $_POST['khoahoc'];
         $time = date("Y-m-d H:i:s");
 
         $sqlupdate= "update users  set username = '".$tennd."', role_id= '".$capquyen."', 
                     email= '".$email."', phone_number = '".$sodt."', fullname= '".$hovaten."', 
-                    DOB= '".$ngaysinh."',img= '".$anh."', update_at= '".$time."' where user_id ='".$id."'";
+                    DOB= '".$ngaysinh."',img= '".$anh."',faculty_id = '".$khoa."',batch_id = '".$khoahoc."', update_at= '".$time."' where user_id ='".$id."'";
         if ($kq = mysqli_query($conn, $sqlupdate))
         {
             echo 
@@ -121,6 +125,14 @@
                         <div class="form_control">
                             <label for="date_of_birth">Ngày sinh:</label>
                             <input type="date" name="DOB" id="date_of_birth" value = "<?php echo $ngaysinh ?>"required>
+                        </div>
+                        <div class="form_control">
+                            <label for="faculty">Khoa:</label>
+                            <input type="text" name="khoa" id="khoa" value = "<?php echo $khoa ?>"required>
+                        </div>
+                        <div class="form_control">
+                            <label for="batch">Khóa:</label>
+                            <input type="input" name="khoahoc" id="khoahoc" value = "<?php echo $khoahoc ?>"required>
                         </div>
                             
                         <footer class="popupFooter">
