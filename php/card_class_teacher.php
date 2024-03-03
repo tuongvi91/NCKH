@@ -38,9 +38,9 @@
             <header>
                 <h1 class="modalTitle">Thêm người dùng </h1>
             </header>
-            <div class="form-group">
-                <label for="phone_number">Chủ đề</label>
-                <input type="text" name="" id="phone_number" required>
+             <div class="form-group">
+                <label for="lesson_content">Chủ đề</label>
+                <input type="text" name="" id="lesson_content" required>
             </div>
             
             <div class="form-group">
