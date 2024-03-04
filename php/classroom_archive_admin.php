@@ -4,48 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lớp học lưu trữ</title>
-    <link rel="stylesheet" href="../css/classroom _archive_admin.css">
+    <link rel="stylesheet" href="../css/classroom_archive_admin.css">
     <?php
     include("../php/sidebar_admin.php");
     ?>
 </head>
 <body>
+    <?php
+        require 'connect.php';
+        //phân trang
+
+        //lấy số mục:
+        $limit = 20;
+        //tổng số dòng dữ liệu 
+        $result = mysqli_query($conn, 'select count(*) as total from lectures');
+        $row = mysqli_fetch_assoc($result);                    
+        $soluongtin = $row['total'];
+        
+        //tổng số trang 
+        $sotrang = ceil($soluongtin /  $limit);
+        //trang hiện tại 
+        $trangchon = isset($_GET['trang']) ? $_GET['trang'] : 1;
+        // số offset
+        $offset = ($trangchon - 1) * 20;
+        
+         //tìm kiếm
+        if (isset ($_POST['timkiem']))
+        {
+            $hocky = $_POST['hky'];
+            $nienkhoa = $_POST['namhoc'];
+            $key = $_POST['keyword'];
+
+            //lọc theo học kì
+            //hiện danh sách
+
+           
+        
+        
+
+    ?>
     <section class="home-section">
         <div class="container">
         <header>
-            <div class="filterEntries">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <div class="filterEntries">                
                 <div class="entries">
-                    Hiển thị <select name="" id="table_size">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                            </select> mục
-                </div>
-                <div class="entries">
-                    Học kì <select name="" id="table_size">
+                    Học kì <select name="hky" id="table_size">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
-                            </select>
+                    </select>
                 </div>
+               
                 <div class="entries">
-                    Năm học<select name="" id="table_size">
-                        <option value="1">2020-2021</option>
-                        <option value="2">2021-2022</option>
-                        <option value="3">2022-2023</option>
-                        <option value="4">2023-2024</option>
-                        <option value="5">2024-2025</option>
-                            </select>
+                    Năm học<select name="namhoc" id="table_size">
+                        <option value="2020-2021">2020-2021</option>
+                        <option value="2021-2022">2021-2022</option>
+                        <option value="2022-2023">2022-2023</option>
+                        <option value="2023-2024">2023-2024</option>
+                        <option value="2024-2025">2024-2025</option>
+                        </select>
                 </div>
                 <div class="filter">
-                <form action= "<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
                     <label for="search">Tìm kiếm</label>
                     <input type="search" name="keyword" id="search" placeholder="Tìm kiếm">
-                    <input type="submit" value="Tìm kiếm">
-                </form>                    
+                    <input type="submit" name = "timkiem" value="Tìm kiếm">                    
                 </div>
             </div>
+        </form>
             <div class="addMemberBtn">
                 <button>Thêm mới </button>
             </div>
@@ -69,27 +95,33 @@
             </thead>
 
             <tbody class="userInfo">
-               <tr><td class="empty" colspan="11" align="center">Không có dữ liệu trong bảng</td></tr>
-               <tr>
-                    <?php
-                    "<td><?php echo $?></td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?> </td>
-                    <td><?php echo $?></td>
-                    <td><?php echo $?></td>"
-                    ?>
+              
+               
+               <tr>                
+                    <td><?php echo $row['']?></td>
+                    <td><?php echo $row['']?></td>
+                    <td><?php echo $row['']?></td>
+                    <td><?php echo $row['']?></td>
+                    <?php //tiết ?>
+                    <td><?php echo $row['']?></td>
+
+                    <td><?php echo $row['']?></td>
+                    <td><?php echo $row['']?></td>
+                    <td><?php echo $row['']?> </td>
+                    <td><?php echo $row['']?></td>
+                    <td><?php echo $row['']?></td>
+                    
                     <td>
                         <button><i class="fa-solid fa-eye"></i></button>
                         <button><i class="fa-solid fa-pen"></i></button>
                         <button><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                </tr>
-               
+               <?php }
+               {
+                //  xử lý lỗi
+                //echo "<tr><td class='empty' colspan='11' align='center'>Không có dữ liệu trong bảng</td></tr>";
+            }?> 
             </tbody>
         </table>
         </div>
@@ -110,22 +142,22 @@
                     $phong = $_POST['room'];
                     $ngay = $_POST['date'];
                     $chude =$_POST['lesson_content'];
-                    if ($tiet == "1")
+                    if ($tiet == "1-2")
                     {   
                         $batdau = "07:00:00";
                         $ketthuc = "08:40:00";
                     } else 
-                    if ($tiet == "2")
+                    if ($tiet == "3-5")
                     {
                         $batdau = "09:00:00";
                         $ketthuc = "11:30:00";
                     } else 
-                    if ($tiet == "3")
+                    if ($tiet == "6-7")
                     {
                         $batdau = "13:00:00";
                         $ketthuc = "14:40:00";
                     } else 
-                    if ($tiet == "4")
+                    if ($tiet == "8-10")
                     {
                         $batdau = "15:00:00";
                         $ketthuc = "17:30:00";
@@ -181,10 +213,10 @@
                         <label for="lesson" class="form-label">Tiết học</label>
                             <div class="select-wrapper">
                                 <select name="time" id="table_size">
-                                    <option value="1">1-2</option>
-                                    <option value="2">3-5</option>
-                                    <option value="3">6-7</option>
-                                    <option value="4">8-10</option>
+                                    <option value="1-2">1-2</option>
+                                    <option value="3-5">3-5</option>
+                                    <option value="6-7">6-7</option>
+                                    <option value="8-10">8-10</option>
                                 </select>
                             </div>
                     </div>
@@ -216,19 +248,7 @@
              
             </div>
         </div>
-        <script src="../js/classroom _archive_admin.js"></script>
+        <script src="../js/classroom_archive_admin.js"></script>
     </section>
-    <?php
-        //xu ly tim kiem
-        $keyword = $_GET['keyword'];
-        require 'connect.php';
-        $sql = "SELECT * FROM teaching_schedule WHERE user_id = $keyword";
-        $rs = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($rs))
-        {
-
-
-        }
-    ?>
 </body>
 </html>
