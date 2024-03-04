@@ -47,13 +47,6 @@
                 <span class="tooltip">Lịch</span>
         </li>
         <li>
-            <a href="createQRcode.php">
-                <i class="fa-solid fa-clipboard-user"></i>
-                <span class="links_name">Điểm danh</span>
-            </a>
-                <span class="tooltip">Điểm danh</span>
-        </li>
-        <li>
             <a href="#">
                 <i class="fa-solid fa-gear"></i>
                 <span class="links_name">Cài đặt</span>
