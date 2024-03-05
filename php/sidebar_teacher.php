@@ -18,13 +18,7 @@
             <i class="fa-solid fa-bars" id="btn"></i>
         </div>
     <ul class="nav-list scroll">
-        <li>
-            <a href="#">
-            <i class="fa-solid fa-house"></i>
-                <span class="links_name">Màn hình chính</span>
-            </a>
-                <span class="tooltip">Màn hình chính</span>
-        </li>
+        
         <li>
             <a href="#">
             <i class="fa-solid fa-graduation-cap"></i>
