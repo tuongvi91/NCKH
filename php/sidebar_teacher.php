@@ -33,7 +33,7 @@
             <span class="tooltip">Danh sách lớp học</span>
         </li>
         <li>
-            <a href="teacher_admin.php">
+            <a href="profile_teacher.php">
             <i class="fa-solid fa-user"></i>
                 <span class="links_name">Thông tin cá nhân</span>
             </a>
@@ -57,7 +57,7 @@
             <div class="profile-details">
                 <!--<img src="profile.jpg" alt="profileImg">-->
                 <div class="name_job">
-                    <div class="name"><a href ="#"><?php if(isset($_SESSION['tennguoidung'])) echo $_SESSION['tennguoidung'] ?></a></div>
+                    <div class="name"><a href ="profile_teacher.php"><?php if(isset($_SESSION['tennguoidung'])) echo $_SESSION['tennguoidung'] ?></a></div>
                     <div class="job">Giảng viên</div>
                 </div>
             </div>
