@@ -63,8 +63,7 @@
     <tbody class="userInfo">
         <?php 
             require 'connect.php';     
-
-            
+    
             //lấy số mục:
             $limit = 20;
             //tổng số dòng dữ liệu 

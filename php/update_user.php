@@ -61,7 +61,7 @@
             echo 
             "<script> 
                     alert('Đã lưu.');
-                    window.location= 'teacher_admin.php'						
+                    window.location= 'teacher_admin.php';						
             </script>";	
         }
         else echo 
