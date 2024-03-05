@@ -21,13 +21,6 @@
       
         <li>
             <a href="#">
-            <i class="fa-solid fa-house"></i>
-                <span class="links_name">Màn hình chính</span>
-            </a>
-                <span class="tooltip">Màn hình chính</span>
-        </li>
-        <li>
-            <a href="#">
             <i class="fa-solid fa-graduation-cap"></i>
                 <span class="links_name"> Danh sách lớp học</span>
             </a>
