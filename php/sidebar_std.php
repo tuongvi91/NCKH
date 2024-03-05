@@ -18,11 +18,7 @@
             <i class="fa-solid fa-bars" id="btn"></i>
         </div>
     <ul class="nav-list scroll">
-        <li>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Tìm kiếm...">
-            <span class="tooltip">Tìm kiếm</span>
-        </li>
+      
         <li>
             <a href="#">
             <i class="fa-solid fa-house"></i>
@@ -37,13 +33,7 @@
             </a>
             <span class="tooltip">Danh sách lớp học</span>
         </li>
-        <li>
-            <a href="#">
-                <i class="fa-regular fa-folder"></i>
-                <span class="links_name">Lớp học lưu trữ</span>
-            </a>
-                <span class="tooltip">Lớp học lưu trữ</span>
-        </li>
+     
         <li>
             <a href="#">
                 <i class="fa-regular fa-calendar"></i>
@@ -51,14 +41,6 @@
             </a>
                 <span class="tooltip">Lịch</span>
         </li>
-        <li>
-            <a href="attendance.php">
-                <i class="fa-solid fa-clipboard-user"></i>
-                <span class="links_name">Điểm danh</span>
-            </a>
-                <span class="tooltip">Điểm danh</span>
-        </li>
-        
         <li>
             <a href="#">
                 <i class="fa-solid fa-gear"></i>
@@ -79,7 +61,6 @@
     </ul>
     </div>
     <section class="home-section">
-      <div class="text"></div>
     </section>
     <script src="../js/sidebar_std.js"></script>
 </body>
