@@ -36,6 +36,13 @@
         </li>
         <li>
             <a href="#">
+            <i class="fa-solid fa-user"></i>
+                <span class="links_name">Thông tin cá nhân</span>
+            </a>
+                <span class="tooltip">Thông tin cá nhân</span>
+        </li>
+        <li>
+            <a href="#">
                 <i class="fa-solid fa-gear"></i>
                 <span class="links_name">Cài đặt</span>
             </a>
