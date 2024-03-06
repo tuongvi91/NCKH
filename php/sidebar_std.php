@@ -60,8 +60,7 @@
         </li>
     </ul>
     </div>
-    <section class="home-section">
-    </section>
+    
     <script src="../js/sidebar_std.js"></script>
 </body>
 </html>
