@@ -1,0 +1,109 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+
+.popup {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.popup header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.popup header .modalTitle {
+    font-size: 24px;
+    color: #69b4fa;
+}
+
+.popup .body {
+    padding: 10px;
+}
+
+.popup .imgholder {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.popup .imgholder .upload {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px dashed #69b4fa;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.popup .imgholder .upload input {
+    display: none;
+}
+
+.popup .imgholder .upload i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
+.popup .imgholder img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.popup .form_control {
+    margin-bottom: 15px;
+}
+
+.popup .form_control label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #69b4fa;
+}
+
+.popup .form_control input[type="text"],
+.popup .form_control input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #69b4fa;
+    border-radius: 4px;
+}
+
+.popup .submitBtn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup .submitBtn:hover {
+    background-color: #0056b3;
+   
+}
+.form_control input[type="date"] {
+    color: #69b4fa;
+}
