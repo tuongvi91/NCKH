@@ -75,7 +75,7 @@
         <div class="add-class">
 
             <header>
-                <h1 class="modalTitle">Thêm người dùng </h1>
+                <h1 class="modalTitle">Thêm lớp học </h1>
             </header>
              <div class="form-group">
                 <label for="lesson_content">Chủ đề</label>
