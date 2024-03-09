@@ -60,7 +60,7 @@
     ?>
     <section class="home-section">        
         <div class="card-container">
-            <a href="#" class="card card-1">
+            <a href="list_class_teacher.php?id=<?php echo $r['course_id']; ?>" class="card card-1">
                 <div class="card-info">
                     <div class="card-time"><?php echo $r['start_time'] ?></div>
                     <h1 class="card-title"><?php echo $r['name'] ?></h1>
