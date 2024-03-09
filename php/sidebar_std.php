@@ -35,7 +35,7 @@
                 <span class="tooltip">Lịch</span>
         </li>
         <li>
-            <a href="#">
+            <a href="profile_std.php">
             <i class="fa-solid fa-user"></i>
                 <span class="links_name">Thông tin cá nhân</span>
             </a>
