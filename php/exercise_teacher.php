@@ -12,10 +12,10 @@
 <body>
     <?php
         require 'connect.php';
-        $courseid = $_GET['id'];
+        $courseid = $_GET['id']; 
         //thêm bài tập
         if (isset ($_POST['submit']))
-        {
+        {           
             $ten = $_POST['task-name'];
             $ngaynop = $_POST['task-deadline'];
             
@@ -31,7 +31,7 @@
 
             //kiểm tra định dạng
             $allow_ext = ['png', 'jpg', 'jpeg', 'gif', 'ppt', 
-                            'zip', 'pptx', 'doc', 'docx', 'xls', 'xlsx'];
+                        'zip', 'pptx', 'doc', 'docx', 'xls', 'xlsx'];
             
             if (in_array($ext, $allow_ext))
             {
@@ -102,12 +102,13 @@
 
         <div class="filterEntries">
             <div class="filter">
-                <form action="" method = "GET">                
+                <form action="" method = "POST">                
                     <input type="text" name="search" id="search" placeholder="Tìm kiếm" >
                     <input type = "submit" name = "OK" value="OK">
                 </form>
             </div>
         </div>
+        
         
         <div class="upload-section">
                 <button class="create-new-task-btn" >Thêm bài tập mới!</button>
@@ -128,21 +129,20 @@
     </div>
     <?php    
         //hiển thị danh sách btap
-        //=-==========chưa get được id cho course và tìm kiếm======
-        if (isset($_GET['OK']))
-        {            
-            $key = $_GET['search'];    
-            $layBT = "select*from assignments where course_id = '".$courseid."' and (assignment_title like '%key%' or assignment_content like '%key%' )";    
+        if (isset($_POST['OK']) && !empty($_POST['OK']))
+        {     
+            $courseid = $_GET['id'];    
+            $key = $_POST['search'];  
+            $layBT = "SELECT * FROM assignments WHERE course_id = '".$courseid."'  AND assignment_title LIKE '%$key%'";    
             $kq = mysqli_query($conn, $layBT);  
         }
         else 
         {
-            $layBT = "select*from assignments where course_id = '".$courseid."'";
+            $layBT = "select*from assignments where (course_id = '".$courseid."')";
             $kq = mysqli_query($conn, $layBT);
         }        
         while  ($r = mysqli_fetch_array($kq)) 
-        {   
-            
+        {                        
     ?>
     <!-- Hiển thị danh sách bài tập -->
     <div class="exercise-list">
