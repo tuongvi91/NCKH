@@ -10,19 +10,38 @@
     ?>
 </head>
 <body>
+    <?php
+
+        //get id course 
+        $courseid = $_GET['id'];
+        require 'connect.php';
+
+        //lấy các người học học môn này 
+        /*$arr_userid = array(); 
+        if (isset($_GET['OK']) && !empty($_GET['OK']))
+        {
+            $key = $_GET['search'];
+            $findcmd = "select*from teaching_schedule where course_id = $courseid ";
+            $layMastd = mysqli_query ($conn, $findcmd);
+            while ($row = mysqli_fetch_array($layMastd))
+            {
+                $arr_userid = $row['user_id'];
+            }
+        }
+            else $layDS = mysqli_query($conn, "");*/
+    ?>
     <section class="home-section">
     <header>
         <div class="decentralization">
             <ul class="menu">
-                <li><a href="#">Bài tập</a></li>
-                <li><a href="#">Danh sách lớp học</a></li>
+                <li><a href="exercise_teacher.php?id=<?php echo $courseid; ?>">Bài tập</a></li>
+                <li><a href="list_class_teacher.php?id=<?php echo $courseid; ?>">Danh sách lớp học</a></li>
             </ul>
         </div>
 
         <div class="filterEntries">
             <div class="filter">
-                <form action="" method = "get">
-                
+                <form action="" method = "get">                
                     <input type="search" name="search" id="search" placeholder="Tìm kiếm" >
                     <input type = "submit" name = "OK" value="OK">
                 </form>
