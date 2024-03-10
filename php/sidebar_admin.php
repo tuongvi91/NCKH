@@ -34,13 +34,6 @@
         </li>
         <li>
             <a href="#">
-                <i class="fa-regular fa-folder"></i>
-                <span class="links_name">Lớp học lưu trữ</span>
-            </a>
-                <span class="tooltip">Lớp học lưu trữ</span>
-        </li>
-        <li>
-            <a href="#">
                 <i class="fa-solid fa-clipboard-user"></i>
                 <span class="links_name">Điểm danh</span>
             </a>
