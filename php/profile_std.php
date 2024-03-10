@@ -109,7 +109,7 @@
                                         $faculty_name = $row['faculty_name'];  
                                         if ($faculty_id = $khoa)  echo "<option value='$faculty_id' selected> $faculty_name </option>";                       
                                         // Viết option cho khoa
-                                        echo "<option value='$faculty_id'> $faculty_name </option>";
+                                        if ($faculty_id != $khoa) echo "<option value='$faculty_id'> $faculty_name </option>";
                                     }
                                     echo "</select>
                                     </form>";
