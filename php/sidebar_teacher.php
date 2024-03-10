@@ -59,9 +59,7 @@
         </li>
     </ul>
     </div>
-    <section class="home-section">
-      <div class="text"></div>
-    </section>
+
     <script src="../js/sidebar_teacher.js"></script>
 </body>
 </html>
