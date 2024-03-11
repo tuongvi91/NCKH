@@ -95,8 +95,8 @@
     <header>
         <div class="decentralization">
             <ul class="menu">
+                 <li><a href="list_class_teacher.php?id=<?php echo $courseid; ?>">Danh sách lớp học</a></li>
                 <li><a href="exercise_teacher.php?id=<?php echo $courseid; ?>">Bài tập</a></li>
-                <li><a href="list_class_teacher.php">Danh sách lớp học</a></li>
             </ul>
         </div>
 
