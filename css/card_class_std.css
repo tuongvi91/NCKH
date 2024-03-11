@@ -1,0 +1,227 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.search-container {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.search-input::placeholder {
+    color: #69b4fa; 
+}
+.search-input {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #69b4fa;
+    border-radius: 5px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #69b4fa;
+    border-radius: 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #69b4fa;
+    transition: box-shadow 0.3s ease;
+}
+/* CSS thêm lớp học */
+.add-class {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #69b4fa;
+    z-index: 1000;
+    width: 350px;
+}
+
+.add-class header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #69b4fa;
+}
+
+.add-class .modalTitle {
+    margin: 0;
+    font-size: 24px;
+}
+.add-class .form-group label {
+    display: block;
+    font-weight: bold;
+    color: #69b4fa; /* Màu chữ của nhãn */
+}
+.add-class .form-group {
+    margin-bottom: 15px;
+}
+
+.add-class .form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.add-class input[type="text"],
+.add-class select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #69b4fa;
+    border-radius: 5px;
+}
+
+.add-class .select-wrapper {
+    position: relative;
+}
+
+.add-class .select-wrapper select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #69b4fa;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+     background-color: #ffffff;
+    cursor: pointer;
+    color: #69b4fa;
+}
+
+.add-class .select-wrapper::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #69b4fa;
+}
+
+.add-class .end {
+    text-align: right;
+}
+
+.add-class button {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #69b4fa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-class button:hover {
+    background-color: #0056b3;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px #69b4fa; 
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-time {
+    font-size: 14px;
+    color: #69b4fa;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.add-class-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-class-button {
+    background-color: #69b4fa; 
+    color: white;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    margin-bottom: 20px; 
+}
+
+/* CSS cho modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 3px solid #69b4fa;
+    width: 30%;
+    text-align: center;/
+}
+
+.close {
+    color: #69b4fa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #69b4fa;
+    text-decoration: none;
+    cursor: pointer;
+}
+h2 {
+    color: #69b4fa;
+}
+
+#class-code-input {
+    background-color: #ffffff;
+    color: #69b4fa; /* Màu chữ */
+    border: 2px solid #69b4fa;
+    padding: 10px; /* Điều chỉnh độ rộng của input */
+    margin-bottom: 10px; /* Khoảng cách giữa input và button */
+    border-radius: 5px ; /* Bo tròn góc */
+}
+
+#submit-class-code {
+    background-color: #69b4fa;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Điều chỉnh độ rộng và cao của button */
+    border-radius: 5px;
+    cursor: pointer; /* Biến đổi con trỏ khi rê chuột qua button */
+}
+
+/* CSS khi rê chuột qua button */
+#submit-class-code:hover {
+    background-color: #4a90e2; /* Màu nền button khi hover */
+}
+
+
+
+
+
+
