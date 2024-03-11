@@ -28,7 +28,7 @@
         </li>
      
         <li>
-            <a href="#">
+           <a href="timetable_std.php">
                 <i class="fa-regular fa-calendar"></i>
                 <span class="links_name">Lịch </span>
             </a>
