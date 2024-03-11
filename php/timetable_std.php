@@ -98,6 +98,7 @@
                             <td>
                                 <div class="lesson_content">Nguyên lí hệ điều hành</div>
                                 <div class="room">A2.03</div>
+                                 <div class="username">Lê Đình Luyện</div>
                             </td>
                             <td></td>
                             <td></td>
@@ -112,6 +113,7 @@
                             <td>
                                 <div class="lesson_content">Lập trình cơ bản</div>
                                 <div class="room">A8.51</div>
+                                 <div class="username">Phan Đình Sinh</div>
                             </td>
                             <td></td>
                             <td></td>
