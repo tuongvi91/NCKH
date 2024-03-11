@@ -77,8 +77,8 @@
                         <div class="form_control">
                             <label for="role">Vai trò:</label>
                             <select id="role" name="role">
-                                <option value="2">Người dạy</option>
-                                <option value="1">"Người học</option>
+                                 <option value="2">Giảng viên</option>
+                                 <option value="1">Sinh viên</option>
                             </select>
                         </div>
                         <div class="form_control">
