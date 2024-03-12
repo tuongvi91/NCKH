@@ -24,23 +24,29 @@
         </header>
 
         <main>
+        <h2>Bài tập</h2>
+        <?php
+            require 'connect.php';
+            $courseid = $_GET['id']; 
+            //hiển thị bài tập: 
+            $layBT = "SELECT* FROM users u
+            INNER JOIN teaching_schedule c ON u.user_id = c.user_id
+            INNER JOIN assignments a ON c.course_id = a.course_id
+            WHERE c.course_id = $courseid";
+            $kq = mysqli_query($conn, $layBT);
+            while  ($r = mysqli_fetch_array($kq)) 
+            {   
+        ?>
             <section id="bai-tap">
-                <h2>Bài tập</h2>
                 <div class="bai-tap-item">
-                    <h3>Tên bài tập: Bài tập về HTML và CSS</h3>
-                    <p>Người dạy: John Doe</p>
-                    <p>Ngày hết hạn: 25/03/2024</p>
-                    <p>Ngày tạo: 10/03/2024</p>
-                </div>
-
-                <div class="bai-tap-item">
-                    <h3>Tên bài tập: Bài tập về JavaScript</h3>
-                    <p>Người dạy: Jane Smith</p>
-                    <p>Ngày hết hạn: 30/03/2024</p>
-                    <p>Ngày tạo: 05/03/2024</p>
-                </div>
+                    <h3>Tên bài tập: <?php echo $r['assignment_title'] ?></h3>
+                    <p>Nội dung: <?php echo $r['assignment_content'] ?></p>
+                    <p>Người dạy: <?php echo $r['fullname'] ?></p>
+                    <p>Ngày hết hạn: <?php echo $r['deadline'] ?></p>
+                    <p>Ngày tạo: <?php echo $r['create_at'] ?></p>
+                </div>                  
             </section>
-
+            <?php }?>
         </main>
 
     </section>
