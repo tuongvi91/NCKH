@@ -11,24 +11,9 @@
 </head>
 <body>
     <?php
-
         //get id course 
         $courseid = $_GET['id'];
-        require 'connect.php';
-
-        //lấy các người học học môn này 
-        /*$arr_userid = array(); 
-        if (isset($_GET['OK']) && !empty($_GET['OK']))
-        {
-            $key = $_GET['search'];
-            $findcmd = "select*from teaching_schedule where course_id = $courseid ";
-            $layMastd = mysqli_query ($conn, $findcmd);
-            while ($row = mysqli_fetch_array($layMastd))
-            {
-                $arr_userid = $row['user_id'];
-            }
-        }
-            else $layDS = mysqli_query($conn, "");*/
+        require 'connect.php';          
     ?>
     <section class="home-section">
     <header>
@@ -41,8 +26,8 @@
 
         <div class="filterEntries">
             <div class="filter">
-                <form action="" method = "get">                
-                    <input type="search" name="search" id="search" placeholder="Tìm kiếm" >
+                <form action="" method = "post">                
+                    <input type="text" name="search" id="search" placeholder="Tìm kiếm" >
                     <input type = "submit" name = "OK" value="OK">
                 </form>
             </div>
@@ -56,45 +41,54 @@
         </div>
 
         <div class="attendance">
-            <a href="#">
+            <a href="createQRcode.php">
                 <button class="attendance-btn">Điểm danh</button>
             </a>
         </div>
     </header>
-
     <h2>Danh sách lớp học</h2>
-        <table>
-            <thead>
-                <tr class="heading">
-                    <th>Tên sinh viên</th>
-                    <th>Lớp</th>
-                    <th>Khoa</th>
-                    <th>Khóa học</th>
-                    <th>Hành động</th>  
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Nguyễn Hà Nhân</td>
-                    <td>K44E</td>
-                    <td>Công nghệ thông tin</td>
-                    <td>K44</td>   
-                    <td>
-                        <button><i class="fa-solid fa-pen"></i></button>
-                        <button><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-       
-        <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <textarea id="noteTextarea" rows="4" cols="50"></textarea>
-            <button id="saveNoteBtn">Lưu</button>
-        </div>
-        </div>
+    <table>
+        <thead>
+            <tr class="heading">
+                <th>Tên sinh viên</th>
+                <th>Lớp</th>
+                <th>Khoa</th>
+                <th>Khóa học</th>
+                <th>Hành động</th>  
+            </tr>
+        </thead>
+        <tbody>
+        <?php         
+            if (isset($_POST['OK']) && !empty($_POST['OK']))
+            {                     
+                $laythongtin ="SELECT * FROM users, class_details 
+                where ((users.user_id = class_details.user_id and 
+                class_details.course_id = '".$courseid."') and (users.user_id like '%key%' or users.username like '%key%' or users.fullname like '%key%'))";
+            }
+            else 
+            {
+                $laythongtin ="SELECT * FROM users, class_details 
+                where (users.user_id = class_details.user_id and 
+                class_details.course_id = '".$courseid."' )";
+            }
+            $kq = mysqli_query($conn, $laythongtin);
+            while  ($r = mysqli_fetch_array($kq)) 
+            {                 
+        ?> 
+            <tr>
+                <td><?php echo $r["fullname"] ?></td>
+                <td><?php echo $r["class"] ?></td>
+                <td><?php echo $r["faculty_id"] ?></td> 
+                <td><?php echo $r["batch_id"] ?></td>   
+                <td>     
+                    <a href="add_note.php?ma=<?php echo $r["user_id"] ?>&id=<?php echo $courseid?>"><button><i class="fa-solid fa-pen"></i></button></a>
+                    <a href="delete_std.php?ma=<?php echo $r["user_id"] ?>&id=<?php echo $courseid?>"><button><i class="fa-solid fa-trash"></i></button></a>
+                </td>
+            </tr>
+            <?php }?>
+        </tbody>
+    </table>            
+    
         <script src="../js/list_class_teacher.js"></script>
     </section>
 </body>
