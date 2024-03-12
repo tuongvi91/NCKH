@@ -20,7 +20,7 @@
     <ul class="nav-list scroll">
       
         <li>
-            <a href="#">
+            <a href="card_class_std.php">
             <i class="fa-solid fa-graduation-cap"></i>
                 <span class="links_name"> Danh sách lớp học</span>
             </a>
@@ -28,7 +28,7 @@
         </li>
      
         <li>
-            <a href="#">
+           <a href="timetable_std.php">
                 <i class="fa-regular fa-calendar"></i>
                 <span class="links_name">Lịch </span>
             </a>

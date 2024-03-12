@@ -1,0 +1,64 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #ffffff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #69b4fa;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #69b4fa;
+}
+
+h2 {
+    font-size: 24px;
+    color: #69b4fa;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.bai-tap-item {
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bai-tap-item h3 {
+    font-size: 20px;
+    color: #69b4fa;
+    margin-bottom: 10px;
+}
+
+.bai-tap-item p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 5px;
+}

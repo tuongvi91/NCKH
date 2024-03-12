@@ -95,8 +95,12 @@
     <header>
         <div class="decentralization">
             <ul class="menu">
+                 <li><a href="list_class_teacher.php?id=<?php echo $courseid; ?>">Danh sách lớp học</a></li>
                 <li><a href="exercise_teacher.php?id=<?php echo $courseid; ?>">Bài tập</a></li>
+<<<<<<< HEAD
                 <li><a href="list_class_teacher.php?id=<?php echo $courseid; ?>">Danh sách lớp học</a></li>
+=======
+>>>>>>> 08a95c3dd70ea6ab110767de0a400ed1a6c0cb64
             </ul>
         </div>
 

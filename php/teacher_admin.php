@@ -17,8 +17,8 @@
 <header>
     <div class="decentralization">
         <ul class="menu">
-            <li><a href="teacher_admin.php">Người dạy</a></li>
-            <li><a href="learner_admin.php">Người học</a></li>
+            <li><a href="teacher_admin.php">Giảng viên</a></li>
+            <li><a href="learner_admin.php">Sinh viên</a></li>
         </ul>
     </div>
 
