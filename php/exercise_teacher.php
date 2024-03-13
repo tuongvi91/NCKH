@@ -18,6 +18,7 @@
         {           
             $ten = $_POST['task-name'];
             $ngaynop = $_POST['task-deadline'];
+            $mota = $_POST['task-content'];
             
             //xử lý file đính kèm
             $file = $_FILES['file-upload'];
@@ -73,8 +74,8 @@
                 //thời gian tạo btap 
                 $time = date("Y-m-d H:i:s");
                 // Lưu thông tin bài tập vào cơ sở dữ liệu
-                $sqlAdd = "insert into assignments (course_id, assignment_title, assignment_content, create_at, deadline )
-                values ('".$courseid."', '".$ten."', '".$new_file."', '".$time."', '".$ngaynop."')";
+                $sqlAdd = "insert into assignments (course_id, assignment_title, assignment_content, file, create_at, deadline )
+                values ('".$courseid."', '".$ten."',  '".$mota."', '".$new_file."', '".$time."', '".$ngaynop."')";
 
                 if ($them = mysqli_query($conn, $sqlAdd))
                 {
@@ -97,10 +98,6 @@
             <ul class="menu">
                  <li><a href="list_class_teacher.php?id=<?php echo $courseid; ?>">Danh sách lớp học</a></li>
                 <li><a href="exercise_teacher.php?id=<?php echo $courseid; ?>">Bài tập</a></li>
-<<<<<<< HEAD
-                <li><a href="list_class_teacher.php?id=<?php echo $courseid; ?>">Danh sách lớp học</a></li>
-=======
->>>>>>> 08a95c3dd70ea6ab110767de0a400ed1a6c0cb64
             </ul>
         </div>
 
@@ -119,6 +116,8 @@
                 <form id="task-form" class="upload-form" enctype="multipart/form-data" action="exercise_teacher.php?id=<?php echo $courseid;?>" method="post" style="display: none;">
                     <label for="task-name">Tên bài tập:</label>
                     <input type="text" id="task-name" name="task-name">
+                    <label for="task-content">Mô tả bài tập:</label>
+                    <input type="text" id="task-content" name="task-content">
                     <label for="task-deadline">Ngày hết hạn:</label>
                     <input type="date" id="task-deadline" name="task-deadline">
                     <input type="file" name="file-upload" id="file-upload" class="file-upload-field">
@@ -137,7 +136,7 @@
         {     
             $courseid = $_GET['id'];    
             $key = $_POST['search'];  
-            $layBT = "SELECT * FROM assignments WHERE course_id = '".$courseid."'  AND assignment_title LIKE '%$key%'";    
+            $layBT = "SELECT * FROM assignments WHERE course_id = '".$courseid."'  AND (assignment_title LIKE '%$key%' or assignment_content LIKE '%$key%')";    
             $kq = mysqli_query($conn, $layBT);  
         }
         else 
@@ -152,7 +151,8 @@
     <div class="exercise-list">
             <ul>
                 <li>
-                    <span class="exercise-name">Tên bài tập: <?php echo $r['assignment_title']?></span>
+                    <span class="exercise-name">Tên bài tập: <?php echo $r['assignment_title']?></span></br>
+                    <span class="exercise-content">Mô tả bài tập: <?php echo $r['assignment_content']?></span>
                     <span class="exercise-time">Ngày tạo: <?php echo $r['create_at']?></span>
                     <span class="exercise-time">Hết hạn: <?php echo $r['deadline']?></span>
                 </li>
