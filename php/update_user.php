@@ -11,7 +11,7 @@
     $conn = mysqli_connect ("localhost", "root", "", "qlsv") or die ("!!");
     mysqli_query($conn,"SET NAMES 'utf8'");
     //lay để hiển thị
-    $laytt="select* from users  where user_id ='".$id."'";
+    $laytt="select* from users where user_id ='".$id."'";
     $kq = mysqli_query($conn, $laytt);
 
     if ($row = mysqli_fetch_array($kq))
