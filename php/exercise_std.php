@@ -12,13 +12,17 @@
 </head>
 
 <body>
+    <?php 
+        require 'connect.php';
+        $courseid = $_GET['id']; 
+    ?>
     <section class="home-section">
         <header>
 
             <nav>
                 <ul>
                     <li><a href="attendance_std.php">Điểm danh</a></li>
-                    <li><a href="exercise_std.php">Bài tập</a></li>
+                    <li><a href="exercise_std.php?id=<?php echo $courseid?>">Bài tập</a></li>
                 </ul>
             </nav>
         </header>
@@ -26,8 +30,6 @@
         <main>
         <h2>Bài tập</h2>
         <?php
-            require 'connect.php';
-            $courseid = $_GET['id']; 
             //hiển thị bài tập: 
             $layBT = "SELECT* FROM users u
             INNER JOIN teaching_schedule c ON u.user_id = c.user_id
@@ -39,12 +41,15 @@
         ?>
             <section id="bai-tap">
                 <div class="bai-tap-item">
-                    <h3>Tên bài tập: <?php echo $r['assignment_title'] ?></h3>
+                    <a href="submit_homeworks.php?aid=<?php echo $r['assignment_id']?>">
+                        <h3>Tên bài tập: <?php echo $r['assignment_title'] ?></h3>
+                    </a>
                     <p>Nội dung: <?php echo $r['assignment_content'] ?></p>
                     <p>Người dạy: <?php echo $r['fullname'] ?></p>
                     <p>Ngày hết hạn: <?php echo $r['deadline'] ?></p>
                     <p>Ngày tạo: <?php echo $r['create_at'] ?></p>
-                </div>                  
+                </div>      
+                        
             </section>
             <?php }?>
         </main>
