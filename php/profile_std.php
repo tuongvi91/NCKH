@@ -12,8 +12,7 @@
 <body>
 <?php 
         require 'connect.php';
-            $id = $_SESSION['manguoidung'];
-            echo $id;        
+        $id = $_SESSION['manguoidung'];      
             //lay để hiển thị
         $laytt="select * from users where user_id ='".$id."'";
         $kq = mysqli_query($conn, $laytt);
@@ -56,7 +55,7 @@
                 echo 
                 "<script> 
                         alert('Đã lưu.');
-                        window.location= 'sidebar_teacher.php';                
+                        window.location='sidebar_std.php';             
                 </script>";	
             }
             else echo 
@@ -74,10 +73,10 @@
 
             <div class="body">
                 <form action="" method ="post" enctype="multipart/form-data">
-                    <div class="imgholder">
+                    <div class="imgholder" >
                         <label for="uploadimg" class="upload">
-                            <input type="file" name="" id="uploadimg" class="picture">
-                            <img src="../img/<?php echo $anh ?>" alt="chưa có ảnh " width="150" height="150" class="img">
+                            <input type="file" name="img" id="uploadimg" class="picture">
+                            <img src="../img/<?php echo $anh ?>" alt="chưa có ảnh " width="150" height="150" id = "img" class="img">
                             <i class="fa-solid fa-plus"></i>
                         </label>                
                     </div>
@@ -94,29 +93,28 @@
                         </div>
                         <div class="form_control">
                             <label for="faculty">Khoa</label> 
+                            <form action='' method='post'>
+                                <select name='khoa' id = 'faculty'>
                             <?php
                                 $sqlcmd = "SELECT * FROM faculty";
                                 $laykhoa = mysqli_query($conn, $sqlcmd); 
                                                             
                                 if ($laykhoa) {
                                     // Lặp qua các khoa
-                                    echo 
-                                    "<form action='' method='post'>
-                                    <select name='khoa' id = 'faculty'>";
                                     while ($row = mysqli_fetch_array($laykhoa)) 
                                     {
                                         $faculty_id = $row['faculty_id'];
                                         $faculty_name = $row['faculty_name'];  
-                                        if ($faculty_id = $khoa)  echo "<option value='$faculty_id' selected> $faculty_name </option>";                       
+                                        if ($faculty_id === $khoa)  echo "<option value='$faculty_id' selected> $faculty_name </option>";                       
                                         // Viết option cho khoa
-                                        if ($faculty_id != $khoa) echo "<option value='$faculty_id'> $faculty_name </option>";
+                                        else if ($faculty_id != $khoa) echo "<option value='$faculty_id'> $faculty_name </option>";
                                     }
-                                    echo "</select>
-                                    </form>";
                                 } else {
                                     echo "Lỗi truy vấn: " . mysqli_error($conn);
                                 }
                             ?> 
+                            </select>
+                                </form>
                         </div>  
                         <div class="form_control">
                             <label for="phone_number">SĐT:</label>
@@ -143,16 +141,16 @@
 <script src="../js/profile_teacher.js"></script>
 <script>
         // Hiển thị ảnh preview (xem trước) khi người dùng chọn Ảnh
-        const reader = new FileReader();
-        const fileInput = document.getElementById("img");
-        const img = document.getElementById("preview-img");
-        reader.onload = e => {
-        img.src = e.target.result;
-        }
-        fileInput.addEventListener('change', e => {
-        const f = e.target.files[0];
-        reader.readAsDataURL(f);
-        })
+    const reader = new FileReader();
+    const fileInput = document.getElementById("img");
+    const img = document.getElementById("preview-img");
+    reader.onload = e => {
+    img.src = e.target.result;
+    }
+    fileInput.addEventListener('change', e => {
+    const f = e.target.files[0];
+    reader.readAsDataURL(f);
+    })
   </script>
 </body>
 </html>
