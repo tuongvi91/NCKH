@@ -35,6 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="assignment_content">Nội dung bài tập:</label>
+                <td><?php echo $r['assignment_content']?>
                 <?php
                     //tải file về
                      $layfile = "SELECT * FROM assignments WHERE assignment_id = $amid";
@@ -44,25 +45,24 @@
                      {
                          $file_path = "../upload/".$row['file'];
                          ?>
-                         <a href="<?php echo $file_path ?>" download>Tải về </a>
+                         <a href="<?php echo $file_path ?>" download>Tải xuống file bài tập </a>
                          <?php
                      }
-                ?>
+                ?></td>
             </div>         
              
         <?php }?>
                      
             <div class="form-group">
                 <label for="assignment_description">Mô tả bài tập:</label>
-                <textarea id="assignment_description" name="assignment_description" rows="4" ></textarea>
+                <textarea id="assignment_description" name="assignment_description" rows="4" required></textarea>
             </div>
             
             <div class="form-group">
                 <label for="assignment_file">Chọn file:</label>
                 <input type="file" id="assignment_file" name="assignment_file" >
             </div>
-            <button type="submit">Nộp bài</button>
-            <input type="submit" name="submit" value="Nộp"> </input>
+            <input type="submit" name="submit" value="Nộp bài"> </input>
         </form>
     </main>
     </section>
