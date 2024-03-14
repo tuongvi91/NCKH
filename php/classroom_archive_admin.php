@@ -10,39 +10,6 @@
     ?>
 </head>
 <body>
-    <?php
-        require 'connect.php';
-        //phân trang
-
-        //lấy số mục:
-        $limit = 20;
-        //tổng số dòng dữ liệu 
-        $result = mysqli_query($conn, 'select count(*) as total from lectures');
-        $row = mysqli_fetch_assoc($result);                    
-        $soluongtin = $row['total'];
-        
-        //tổng số trang 
-        $sotrang = ceil($soluongtin /  $limit);
-        //trang hiện tại 
-        $trangchon = isset($_GET['trang']) ? $_GET['trang'] : 1;
-        // số offset
-        $offset = ($trangchon - 1) * 20;
-        
-         //tìm kiếm
-        if (isset ($_POST['timkiem']))
-        {
-            $hocky = $_POST['hky'];
-            $nienkhoa = $_POST['namhoc'];
-            $key = $_POST['keyword'];
-
-            //lọc theo học kì
-            //hiện danh sách
-
-           
-        
-        
-
-    ?>
     <section class="home-section">
         <div class="container">
         <header>
@@ -57,7 +24,7 @@
                 </div>
                
                 <div class="entries">
-                    Năm học<select name="namhoc" id="table_size">
+                            Năm học<select name="namhoc" id="table_size">
                                 <?php
                                 $current_year = date('Y');
                                 for ($year = $current_year; $year <= $current_year + 5; $year++) {
@@ -66,7 +33,8 @@
                                 }
                                 ?>
                             </select>
-                </div>
+
+                        </div>
                 <div class="filter">
                     <label for="search">Tìm kiếm</label>
                     <input type="search" name="keyword" id="search" placeholder="Tìm kiếm">
@@ -97,33 +65,77 @@
             </thead>
 
             <tbody class="userInfo">
-              
-               
-               <tr>                
-                    <td><?php echo $row['']?></td>
-                    <td><?php echo $row['']?></td>
-                    <td><?php echo $row['']?></td>
-                    <td><?php echo $row['']?></td>
-                    <?php //tiết ?>
-                    <td><?php echo $row['']?></td>
+               <?php
+                        require 'connect.php';
 
-                    <td><?php echo $row['']?></td>
-                    <td><?php echo $row['']?></td>
-                    <td><?php echo $row['']?> </td>
-                    <td><?php echo $row['']?></td>
-                    <td><?php echo $row['']?></td>
-                    
-                    <td>
-                        <button><i class="fa-solid fa-eye"></i></button>
-                        <button><i class="fa-solid fa-pen"></i></button>
-                        <button><i class="fa-solid fa-trash-can"></i></button>
-                    </td>
-               </tr>
+                        $query = "SELECT * FROM teaching_schedule";
+
+                        $result = mysqli_query($conn, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+
+                                echo "<td>" . $row['user_id'] . "</td>";
+
+                                $query_user = "SELECT * FROM users WHERE user_id = " . $row['user_id'];
+                                $result_user = mysqli_query($conn, $query_user);
+                                $user_info = mysqli_fetch_assoc($result_user);
+
+                                echo "<td>" . $user_info['fullname'] . "</td>";
+
+                                $query_faculty = "SELECT faculty_name FROM faculty WHERE faculty_id = '" . $user_info['faculty_id'] . "'";
+                                $result_faculty = mysqli_query($conn, $query_faculty);
+                                $faculty_info = mysqli_fetch_assoc($result_faculty);
+
+                                echo "<td>" . $faculty_info['faculty_name'] . "</td>";
+
+
+                                $query_batch = "SELECT batch_name FROM batch WHERE batch_id = '" . $user_info['batch_id'] . "'";
+                                $result_batch = mysqli_query($conn, $query_batch);
+                                $batch_info = mysqli_fetch_assoc($result_batch);
+
+                                echo "<td>" . $batch_info['batch_name'] . "</td>";
+
+                                $start_time =  substr((string)$row['start_time'], 11, 14);
+                                $end_time =  substr((string)$row['end_time'], 11, 14);
+                                $tiet_hoc = "";
+
+                                if (str_contains($start_time, "07:00")) {
+                                    $tiet_hoc = "1-2";
+                                } else if (str_contains($start_time, "09:00")) {
+                                    if (str_contains($end_time, "11:30")) {
+                                        $tiet_hoc = "3-4-5";
+                                    } else {
+                                        $tiet_hoc = "3-4";
+                                    }
+                                }
+
+                                echo "<td>" . $tiet_hoc . "</td>";
+                                echo "<td>" . substr($row['start_time'], 0, 11) . "</td>";
+                                echo "<td>" . $row['room'] . "</td>";
+
+                                $query_lectures = "SELECT * FROM lectures WHERE schedule_id = '" . $row['schedule_id'] . "'";
+                                $result_lectures = mysqli_query($conn, $query_lectures);
+                                $lectures_info = mysqli_fetch_assoc($result_lectures);
+
+                                echo "<td>" . $lectures_info['lecture_content'] . "</td>";
+                                echo "<td>" . substr($start_time, 0, 5) . "</td>";
+                                echo "<td>" . substr($end_time, 0, 5) . "</td>";
+                                echo "<td>
+                                        <button><i class='fa-solid fa-eye'></i></button>
+                                        <button><i class='fa-solid fa-pen'></i></button>
+                                        <button><i class='fa-solid fa-trash-can'></i></button>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='11' class='empty' align='center'>Không có dữ liệu trong bảng</td></tr>";
+                        }
+                        ?>
+
                <?php }
-               {
-                //  xử lý lỗi
-                //echo "<tr><td class='empty' colspan='11' align='center'>Không có dữ liệu trong bảng</td></tr>";
-            }?> 
+           
             </tbody>
         </table>
         </div>
