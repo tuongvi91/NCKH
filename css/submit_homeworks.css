@@ -49,7 +49,7 @@ main {
     resize: vertical;
 }
 
-button[type="submit"] {
+input[type="submit"] {
     background-color: #69b4fa;
     color: #fff;
     border: none;
@@ -58,7 +58,7 @@ button[type="submit"] {
     border-radius: 5px;
     float: right; /* Căn phải */
 }
-button[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
