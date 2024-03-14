@@ -28,7 +28,7 @@
             <div class="filter">
                 <form action="" method = "post">                
                     <input type="text" name="search" id="search" placeholder="Tìm kiếm" >
-                    <input type = "submit" name = "OK" value="OK">
+                    <input type ="submit" name = "OK" value="OK" >
                 </form>
             </div>
         </div>
@@ -60,11 +60,13 @@
         <tbody>
         <?php         
             if (isset($_POST['OK']) && !empty($_POST['OK']))
-            {                     
-                $laythongtin ="SELECT * FROM users, class_details 
-                where ((users.user_id = class_details.user_id and 
-                class_details.course_id = '".$courseid."') and (users.user_id like '%key%' or users.username like '%key%' or users.fullname like '%key%'))";
-            }
+            {   
+                $key = $_POST['search'];                  
+                $laythongtin ="SELECT *  FROM users u
+                INNER JOIN class_details cd ON u.user_id = cd.user_id
+                WHERE ((u.username LIKE '%$key%' or u.user_id LIKE '%$key%' or u.fullname LIKE '%$key%' )
+                AND cd.course_id = '".$courseid."')";
+            } 
             else 
             {
                 $laythongtin ="SELECT * FROM users, class_details 
