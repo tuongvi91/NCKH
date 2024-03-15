@@ -5,51 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời khóa biểu</title></title>
     <link rel="stylesheet" href="../css/timetable_teacher.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
     <?php
     include("../php/sidebar_teacher.php");
     ?>
 </head>
 <body>
+    <?php 
+      $userid = $_SESSION['manguoidung'];
+      require 'connect.php';
+    ?>
     <section class="home-section">
     <div class="scheduler">
-      <h3>Thời khóa biểu giảng viên</h3>
-      
-            <div class="options">
-                <label for="year">Năm học:</label>
-                <select name="cboNamHocLoc" class="form-control" id="cboNamHocLoc" style="margin: 5px 0;">
-                                                <option value="">--Chọn năm học--</option>
-                                                <?php
-                                                $date = getdate();
-                                                $nammoi = $date['year'] + 2;
-                                                $namcu = $date['year'] - 3;
-                                                while ($namcu < $nammoi) {
-                                                    $nam1 = ($namcu) . "-" . ($namcu + 1);
-                                                    echo "<option value='$nam1'>$nam1</option>";
-                                                    $namcu++;
-                                                }
-                                                ?>
-                                            </select>
-
-                <label for="semester">Học kỳ:</label>
-                <select name="semester" id="semester">
-                    <option value="1">Học kỳ 1</option>
-                    <option value="2">Học kỳ 2</option>
-                    <option value="3">Học kỳ 3</option>
-                </select>
-
-                <label for="week">Tuần học:</label>
-                  <select name="week" id="week">
-                    <?php
-                    $numWeeks = 10;
-
-                    for ($i = 1; $i <= $numWeeks; $i++) {
-                        echo '<option value="' . $i . '">Tuần ' . $i . '</option>';
-                    }
-                    ?>
-                  </select>
-
+      <h3>Thời khóa biểu giảng viên</h3>    
+      <div id="left">
+        <?php
+          //lấy các môn người này dạy:
+          $layMon = "SELECT c.name
+          FROM course c
+          INNER JOIN teaching_schedule t ON c.course_id = t.course_id
+          WHERE t.user_id = '".$userid."'";
+          $kq = mysqli_query($conn, $layMon);
+          while  ($r = mysqli_fetch_array($kq)) 
+          {   
+        ?>
+            <div class="list" draggable="true">
+                <i class="fa fa-list-ul" aria-hidden="true"></i><?php echo $r['name']?>
             </div>
-      <div class="week-scheduler">
+        <?php }?>
+      </div>
+      
+      
+            
+      <div id="week_scheduler">
         <table class="table table-bordered">
           <thead class="thead-dark">
             <tr>
@@ -66,53 +55,50 @@
           <tbody>
             <tr>
               <td>7:00 - 8:40</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
             </tr>
             <tr>
               <td>9:00-11:30</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
             </tr>
             <tr>
               <td>13:00-14:40</td>
               <td>
-                <div class="lesson_content">Nguyên lí hệ điều hành</div>
-                <div class="room">A2.03</div>
+              <div id="right"></div>
               </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
             </tr>
             <tr>
               <td>15:00-17:30</td>
-              <td></td>
-              <td>
-                <div class="lesson_content">Lập trình cơ bản</div>
-                <div class="room">A8.51</div>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
+              <td><div id="right"></div></td>
             </tr>
           </tbody>
         </table>
       </div>
+    
       
 
       <div class="print-button-container">
