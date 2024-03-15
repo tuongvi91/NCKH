@@ -34,7 +34,7 @@
                 <span class="tooltip">Thông tin cá nhân</span>
         </li>
         <li>
-            <a href="#">
+            <a href="timetable_teacher.php">
                 <i class="fa-regular fa-calendar"></i>
                 <span class="links_name">Lịch </span>
             </a>
