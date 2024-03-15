@@ -34,7 +34,7 @@ body {
 }
 
 
-.week-scheduler {
+#week-scheduler {
   overflow-x: auto;
 }
 
@@ -122,4 +122,59 @@ td {
   background-color: #0056b3;
 }
 
+#left{
+  color: #69b4fa;
+  width: 300px;
+  border: 1px solid #69b4fa;
+  padding: 10px;
+}
 
+#left ul li {
+  color: white;
+  background-color: #69b4fa;
+  cursor: grab;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #0056b3;
+  border-radius: 3px;
+}
+
+#time
+{
+  background-color: #92fa69;;
+  height: 200px;
+  width: 100px;
+}
+
+.list
+{
+  background-color: #69b4fa;
+  color: white;  
+  cursor: grab;
+  padding: 5px 10px;
+  background-color: #69b4fa;
+  color: #fff;
+  border-radius: 3px;
+  margin-bottom: 10px ;
+}
+
+#left
+{
+    width: 300px;
+    min-height: 400px;
+    margin: 20px;
+    border: solid 2px #ccc;
+}
+
+#right
+{
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  color: white;
+  background-color: #a6ccf07f;
+}
+.list i{
+    margin-right: 15px;
+    margin-left: 20px;
+}
