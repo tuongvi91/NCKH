@@ -39,33 +39,13 @@
             </a>
                 <span class="tooltip">Điểm danh</span>
         </li>
-        <li>
-            <a href="#">
-                <i class="fa-regular fa-calendar"></i>
-                <span class="links_name">Lịch </span>
-            </a>
-                <span class="tooltip">Lịch</span>
-        </li>
+        
         <li>
             <a href="#">
                 <i class="fa-solid fa-book"></i>
                 <span class="links_name">Khóa học</span>
             </a>
                 <span class="tooltip">Khóa học</span>
-        </li>
-        <li>
-            <a href="discussions.php">
-                <i class="fa-solid fa-comment"></i>
-                <span class="links_name">Phản hồi</span>
-            </a>
-                <span class="tooltip">Phản hồi</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa-solid fa-gear"></i>
-                <span class="links_name">Cài đặt</span>
-            </a>
-                <span class="tooltip">Cài đặt</span>
         </li>
         <li class="profile">
             <div class="profile-details">
