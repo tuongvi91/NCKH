@@ -19,7 +19,7 @@
     </div>
     <ul class="nav-list">
         <li>
-            <a href="#">
+            <a href="attendance_admin.php">
             <i class="fa-solid fa-graduation-cap"></i>
                 <span class="links_name"> Danh sách lớp học</span>
             </a>
