@@ -47,6 +47,37 @@
             color: #69b4fa;
             transition: box-shadow 0.3s ease;
         }
+        .card:hover {
+            box-shadow: 0 4px 8px #69b4fa;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-time {
+            font-size: 14px;
+            color: #69b4fa;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .add-class-button-container {
+            display: flex;
+            justify-content: center;
+        }
+        .add-class-button {
+            background-color: #69b4fa;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
 
       
     </style>
