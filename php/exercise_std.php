@@ -23,6 +23,7 @@
                 <ul>
                     <li><a href="attendance_std.php">Điểm danh</a></li>
                     <li><a href="exercise_std.php?id=<?php echo $courseid?>">Bài tập</a></li>
+                    <li><a href="ticket_std.php">Vắng học</a></li>
                 </ul>
             </nav>
         </header>
