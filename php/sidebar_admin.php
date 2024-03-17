@@ -14,7 +14,6 @@
     <div class="sidebar ">
         <div class="logo-details">
             <img class="item" src="../img/logo.png" alt="">
-            <div class="logo_name">Study</div>
             <i class="fa-solid fa-bars" id="btn"></i>
     </div>
     <ul class="nav-list">
